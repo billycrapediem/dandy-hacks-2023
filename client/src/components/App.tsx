@@ -9,6 +9,7 @@ import Main from "./pages/Main";
 import NotFound from "./pages/NotFound";
 import WorkSapce from './pages/WorkSpace';
 import DoneTasks from './pages/DoneTasks';
+import Schedule from './pages/Schedule';
 
 interface MyComponentState {
   isLoading: boolean;
@@ -52,6 +53,7 @@ class App extends Component<{}, MyComponentState> {
                 <Route path="/" element={<Main />} />
                 <Route path="workspace" element={<WorkSapce />} />
                 <Route path="done" element={<DoneTasks />} />
+                <Route path="/calendar" element={<Schedule />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </Col>
