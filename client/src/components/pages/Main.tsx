@@ -20,7 +20,6 @@ export default function Main() {
         margin: "10px",
         fontSize: "30px",
     };
-
     return (
         <Container fluid>
             <Row style={rowStyle}>
