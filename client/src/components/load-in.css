@@ -1,0 +1,23 @@
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
+  z-index: 9999;
+  background-image: url("../components/ur2.jpeg");
+  background-repeat: no-repeat;
+  background-position: center center; /* Center both horizontally and vertically */
+  background-size: cover; /* Scale the image to cover the entire container */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading-screen.fade-out {
+  opacity: 0;
+}
+
