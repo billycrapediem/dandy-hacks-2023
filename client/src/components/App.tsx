@@ -8,6 +8,7 @@ import "../components/load-in.css"
 import Main from "./pages/Main";
 import NotFound from "./pages/NotFound";
 import Schedule from './pages/Schedule';
+
 interface MyComponentState {
   isLoading: boolean;
 }
@@ -42,10 +43,10 @@ class App extends Component<{}, MyComponentState> {
         <NavBar />
         <Container fluid>
           <Row >
-            <Col xs={2} id="sidebar-wrapper" className="sidebar">
+            <Col style={{ flex: "1" }} id="sidebar-wrapper" className="sidebar">
               <SideBar />
             </Col>
-            <Col id="page-content-wrapper">
+            <Col style={{ flex: "10" }} id="page-content-wrapper">
               <Routes>
                 <Route path="/" element={<Main />} />
                 <Route path="/calendar" element={<Schedule />} />
