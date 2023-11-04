@@ -7,6 +7,7 @@ import { Routes, Route } from "react-router-dom";
 import "../components/load-in.css"
 import Main from "./pages/Main";
 import NotFound from "./pages/NotFound";
+import Schedule from './pages/Schedule';
 
 interface MyComponentState {
   isLoading: boolean;
@@ -48,6 +49,7 @@ class App extends Component<{}, MyComponentState> {
             <Col style={{ flex: "10" }} id="page-content-wrapper">
               <Routes>
                 <Route path="/" element={<Main />} />
+                <Route path="/calendar" element={<Schedule />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </Col>
