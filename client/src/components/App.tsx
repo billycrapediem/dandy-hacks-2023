@@ -7,6 +7,7 @@ import { Routes, Route } from "react-router-dom";
 import "../components/load-in.css"
 import Main from "./pages/Main";
 import NotFound from "./pages/NotFound";
+
 interface MyComponentState {
   isLoading: boolean;
 }
@@ -41,10 +42,10 @@ class App extends Component<{}, MyComponentState> {
         <NavBar />
         <Container fluid>
           <Row >
-            <Col xs={2} id="sidebar-wrapper" className="sidebar">
+            <Col style={{ flex: "1" }} id="sidebar-wrapper" className="sidebar">
               <SideBar />
             </Col>
-            <Col id="page-content-wrapper">
+            <Col style={{ flex: "10" }} id="page-content-wrapper">
               <Routes>
                 <Route path="/" element={<Main />} />
                 <Route path="*" element={<NotFound />} />
