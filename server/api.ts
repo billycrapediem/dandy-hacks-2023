@@ -29,12 +29,18 @@ router.get("/task", async (req: Request<{}, {}, {}, foo>, res: Response) => {
     }
     return 0;
   }
+  let q = {};
   const { query } = req;
-  const q = { workSpace: query.name, done: query.done }
+  if (query.name === 'undefined') {
+    q = { done: query.done }
+
+  }
+  else {
+    q = { workSpace: query.name, done: query.done }
+  }
   const tasks = await tasksObject.find(
     q
   );
-
   tasks.sort(compareFun);
   res.send(tasks);
 })
@@ -88,6 +94,11 @@ router.post("/addNewList", (req: Request, res: Response) => {
 // update the task given the id
 router.post("/updateTaskDone", (req: Request, res: Response) => {
   tasksObject.updateOne({ _id: req.body.id }, { $set: { done: true } }).then((task) => res.send(task));
+});
+
+// delete the task given the id
+router.post("/deleteTask", (req: Request, res: Response) => {
+  tasksObject.deleteOne({ _id: req.body.id }).then((task) => res.send(task));
 });
 
 // anything else falls to this "not found" case

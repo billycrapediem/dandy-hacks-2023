@@ -7,6 +7,8 @@ import { Routes, Route } from "react-router-dom";
 import "../components/load-in.css"
 import Main from "./pages/Main";
 import NotFound from "./pages/NotFound";
+import WorkSapce from './pages/WorkSpace';
+import DoneTasks from './pages/DoneTasks';
 
 interface MyComponentState {
   isLoading: boolean;
@@ -48,6 +50,8 @@ class App extends Component<{}, MyComponentState> {
             <Col style={{ flex: "10" }} id="page-content-wrapper">
               <Routes>
                 <Route path="/" element={<Main />} />
+                <Route path="workspace" element={<WorkSapce />} />
+                <Route path="done" element={<DoneTasks />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </Col>
