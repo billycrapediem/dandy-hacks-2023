@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Container, Row, Col, } from 'react-bootstrap';
 import { getTaskByWorkSpace, getTasks } from '../utils/api';
 import TaskSchema from "../../../../shared/Tasks";
+import SingleTasksCard from '../modules/SingleTasksCard';
 // main page of the app consists of two parts, reminder of the today's task and overview of the tasks in the future
 // make the text beautiful
 export default function Main() {
@@ -24,6 +25,13 @@ export default function Main() {
         <Container fluid>
             <Row style={rowStyle}>
                 Tasks due today
+            </Row>
+            <Row md={5}>
+                {tasks.map((task: TaskSchema) => {
+                    return (
+                        <SingleTasksCard task={task} />
+                    );
+                })}
             </Row>
             <Row style={rowStyle}>
                 Tasks Over View
