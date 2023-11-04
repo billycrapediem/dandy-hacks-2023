@@ -5,6 +5,7 @@ import Container from 'react-bootstrap/Container';
 import 'bootstrap/dist/css/bootstrap.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faCalendar } from '@fortawesome/free-solid-svg-icons';
+import UR_img from '../ur.jpeg';
 // function have two buttons, one for back to home page, one for go to calender page
 function NavBar() {
   const logoStyle = {
@@ -12,8 +13,9 @@ function NavBar() {
     height: 'auto',    // This will maintain the aspect ratio
   };
   return (
-    <Navbar bg="dark" data-bs-theme="dark">
+    <Navbar bg="light" data-bs-theme="light">
       <Container>
+        <img src={UR_img} style={logoStyle}></img>
         <Navbar.Brand href="#home">UR List</Navbar.Brand>
         <Nav className="me-auto">
           <Nav.Link href="/">
