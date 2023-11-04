@@ -88,3 +88,59 @@ form {
 .u-link:hover {
   color: var(--primary--dim);
 }
+.NavBar-container {
+  padding: var(--s) var(--m);
+  background-color: var(--primary);
+}
+
+.NavBar-title {
+  color: var(--white);
+  font-size: 20px;
+}
+
+.NavBar-linkContainer {
+  margin-left: var(--l);
+}
+
+.NavBar-link,
+.NavBar-link:visited {
+  color: var(--white);
+  opacity: 0.6;
+  text-decoration: none;
+}
+
+.NavBar-link:hover {
+  opacity: 0.8;
+}
+
+.NavBar-link + .NavBar-link {
+  margin-left: var(--m);
+}
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 10px; /* Add some spacing between components */
+}
+
+.component {
+  flex: 1; /* This will make the components evenly distribute horizontally */
+  margin: 10px; /* Add some spacing between components */
+  min-width: 200px; /* Set a minimum width for the components */
+  
+}
+.small-button {
+  width: 100px;
+  height: 40px;
+}
+
+.medium-button {
+  width: 150px;
+  height: 60px;
+}
+
+.large-button {
+  width: 200px;
+  height: 80px;
+}
