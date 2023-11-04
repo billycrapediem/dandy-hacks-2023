@@ -3,6 +3,7 @@ import { Sidebar, Menu, MenuItem, SubMenu } from "react-pro-sidebar";
 import { Link } from "react-router-dom";
 import listSchema from "../../../../shared/Lists";
 import { getLists } from "../utils/endPoint";
+import SubmitLists from "./SubmitLists";
 
 
 export default function SideBar() {
@@ -31,6 +32,7 @@ export default function SideBar() {
                         <MenuItem>no workspace</MenuItem>
                     )}
                 </SubMenu>
+                <MenuItem component={<SubmitLists myList={workspaceList} myFunction={setWorkspaceList} />}>create new list</MenuItem>
                 <MenuItem component={<Link to="/done" />}>Done Tasks</MenuItem>
             </Menu>
         </Sidebar>
