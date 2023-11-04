@@ -44,7 +44,7 @@ class App extends Component<{}, MyComponentState> {
             <Col xs={2} id="sidebar-wrapper" className="sidebar">
               <SideBar />
             </Col>
-            <Col id="page-content-wrapper" className="test">
+            <Col id="page-content-wrapper">
               <Routes>
                 <Route path="/" element={<Main />} />
                 <Route path="*" element={<NotFound />} />

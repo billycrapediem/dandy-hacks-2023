@@ -8,10 +8,12 @@
   opacity: 1;
   transition: opacity 1s ease-in-out;
   z-index: 9999;
-  background-image: url("../components/ur2.jpeg");
+  background-image: url("../components/src/ur2.jpeg");
   background-repeat: no-repeat;
-  background-position: center center; /* Center both horizontally and vertically */
-  background-size: cover; /* Scale the image to cover the entire container */
+  background-position: center center;
+  /* Center both horizontally and vertically */
+  background-size: cover;
+  /* Scale the image to cover the entire container */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -20,4 +22,3 @@
 .loading-screen.fade-out {
   opacity: 0;
 }
-
