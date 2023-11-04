@@ -14,8 +14,9 @@ router.get("/tasks", (req: Request, res: Response) => {
 })
 interface foo {
   name: string;
+  done: boolean;
 }
-
+// get the tasks by the list name, not done tasks
 router.get("/task", async (req: Request<{}, {}, {}, foo>, res: Response) => {
   function compareFun(a: taskSchema, b: taskSchema) {
     if (a.value > b.value) {
@@ -27,10 +28,11 @@ router.get("/task", async (req: Request<{}, {}, {}, foo>, res: Response) => {
     return 0;
   }
   const { query } = req;
-  const q = { workSpace: query.name }
+  const q = { workSpace: query.name, done: query.done }
   const tasks = await tasksObject.find(
     q
   );
+
   tasks.sort(compareFun);
   res.send(tasks);
 })
@@ -50,6 +52,7 @@ async function upToDateTask() {
   })
 }
 
+// add new task to the database
 router.post("/newTasks", (req: Request, res: Response) => {
   const motivationValue: number = calcualteValue(req.body.interest, req.body.confident, req.body.time);
   console.log(motivationValue)
