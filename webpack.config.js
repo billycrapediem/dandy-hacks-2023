@@ -68,6 +68,18 @@ module.exports = {
           },
         ],
       },
+      {
+        test: /\.(jpg|jpeg|png|gif|svg)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'images/', // Specify the output directory for images
+            },
+          },
+        ],
+      },
     ],
   },
   resolve: {
