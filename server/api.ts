@@ -1,17 +1,19 @@
 import express, { Request, Response } from "express";
 import tasksObject, { taskSchema } from "./models/Tasks";
 import listObject from "./models/Lists";
-import { database } from "./server";
 const router = express.Router();
 
-
+// get all the lists from the database
 router.get("/getLists", (req: Request, res: Response) => {
   listObject.find({}).then((listObject) => (res.send(listObject)));
 
 })
+// get all the tasks from the database
 router.get("/tasks", (req: Request, res: Response) => {
   tasksObject.find({}).then((tasks) => (res.send(tasks)));
 })
+
+
 interface foo {
   name: string;
   done: boolean;
@@ -37,6 +39,7 @@ router.get("/task", async (req: Request<{}, {}, {}, foo>, res: Response) => {
   res.send(tasks);
 })
 
+// return the value of the task
 function calcualteValue(interest: number, confident: number, time: number) {
   const date = new Date();
   const nomiator: number = interest * confident;
@@ -69,16 +72,22 @@ router.post("/newTasks", (req: Request, res: Response) => {
   )
   newTasks.save().then((task) => res.send(task));
 });
+
+//update the task
 router.post("/upToDateTask", (req: Request, res: Response) => {
   upToDateTask();
 })
 
-
+// add new list to the database
 router.post("/addNewList", (req: Request, res: Response) => {
   const newLists = new listObject({
     name: req.body.name,
   });
   newLists.save().then((list) => res.send(list));
+});
+// update the task given the id
+router.post("/updateTaskDone", (req: Request, res: Response) => {
+  tasksObject.updateOne({ _id: req.body.id }, { $set: { done: true } }).then((task) => res.send(task));
 });
 
 // anything else falls to this "not found" case
