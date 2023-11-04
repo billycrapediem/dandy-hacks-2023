@@ -21,7 +21,6 @@ export default function Main() {
         fontSize: "30px",
 
     };
-
     return (
         <Container fluid>
             <Row style={rowStyle}>
