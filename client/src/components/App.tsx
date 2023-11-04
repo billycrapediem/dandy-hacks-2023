@@ -1,15 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
-import { Routes, Route } from "react-router-dom";
-
-import NotFound from "./pages/NotFound";
-import Skeleton from "./pages/Skeleton";
-
+import SideBar from "./modules/SideBar";
 
 const App = () => {
 
   return (
-    <div> hello</div>
+    <div style={{ display: "flex", height: "100vh" }}>
+      <SideBar />
+      <h1>WELCOME TO QUICKPAY</h1>
+    </div>
   );
 };
 
