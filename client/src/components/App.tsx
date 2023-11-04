@@ -1,34 +1,65 @@
-import React from "react";
-import { Routes, Route } from "react-router-dom";
+import React, { Component } from 'react';
+
 import NavBar from "./modules/NavBar";
 import SideBar from "./modules/SideBar";
+import { Row, Col, Container, Alert } from "react-bootstrap";
+import { Routes, Route } from "react-router-dom";
+import "../components/load-in.css"
 import Main from "./pages/Main";
 import NotFound from "./pages/NotFound";
-import { Container, Row, Col } from "react-bootstrap";
-import "./utils/utilities.css";
+interface MyComponentState {
+  isLoading: boolean;
+}
+let content;
+class App extends Component<{}, MyComponentState> {
+  constructor(props) {
+    super(props);
 
+    this.state = {
+      isLoading: true,
+    };
+  }
 
-// set up the app, side bar, and routes
-// side bar is on the left take 30% width, routes are on the right take 70% width
-const App = () => {
-  return (
-    <div>
-      <NavBar />
-      <Container fluid>
-        <Row >
-          <Col xs={2} id="sidebar-wrapper" className="sidebar">
-            <SideBar />
-          </Col>
-          <Col id="page-content-wrapper" className="test">
-            <Routes>
-              <Route path="/" element={<Main />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </Col>
-        </Row>
-      </Container>
-    </div>
-  );
-};
+  componentDidMount() {
+    // Simulate an asynchronous operation (e.g., data fetching)
+    setTimeout(() => {
+      this.setState({ isLoading: false });
+    }, 1000);
+  }
+
+  render() {
+
+    if (this.state.isLoading) {
+      // Render a loading message or spinner while data is loading
+      content = (
+        <div className="loading-screen">
+        </div>
+      );
+    } else {
+      // Render your main content once data has loaded
+      content = (<div>
+        <NavBar />
+        <Container fluid>
+          <Row >
+            <Col xs={2} id="sidebar-wrapper" className="sidebar">
+              <SideBar />
+            </Col>
+            <Col id="page-content-wrapper" className="test">
+              <Routes>
+                <Route path="/" element={<Main />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </Col>
+          </Row>
+        </Container>
+      </div>);
+    }
+    return (
+      <div>
+        {content}
+      </div>
+    );
+  }
+}
 
 export default App;
