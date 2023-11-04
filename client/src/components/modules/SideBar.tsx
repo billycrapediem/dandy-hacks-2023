@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Sidebar, Menu, MenuItem, SubMenu } from "react-pro-sidebar";
 import { Link } from "react-router-dom";
 import listSchema from "../../../../shared/Lists";
-import { getLists } from "../utils/api";
+import { getLists } from "../utils/endPoint";
 
 
 export default function SideBar() {
@@ -22,7 +22,7 @@ export default function SideBar() {
                 <SubMenu label="work space">
                     {lenWorkspace ? (workspaceList.map((workspace: listSchema) => {
                         return (
-                            <MenuItem >
+                            <MenuItem key={workspace.name}>
                                 {workspace.name}
                             </MenuItem>
                         );
@@ -31,6 +31,7 @@ export default function SideBar() {
                         <MenuItem>no workspace</MenuItem>
                     )}
                 </SubMenu>
+                <MenuItem component={<Link to="/done" />}>Done Tasks</MenuItem>
             </Menu>
         </Sidebar>
     )
