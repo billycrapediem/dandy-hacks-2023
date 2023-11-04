@@ -42,6 +42,15 @@ form {
   flex-grow: 1;
 }
 
+.test {
+  background-color: red;
+}
+
+.sidebar {
+  display: flex;
+  min-height: 100vh;
+}
+
 .u-flex {
   display: flex;
 }

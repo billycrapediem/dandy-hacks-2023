@@ -5,6 +5,7 @@ import React from "react";
 import App from "./components/App";
 import { createRoot } from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import NotFound from "./components/pages/NotFound";
 
 const router = createBrowserRouter([
@@ -19,9 +20,10 @@ if (container) {
   const root = createRoot(container);
   root.render(
     <React.StrictMode>
-      <RouterProvider router={router} />
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
     </React.StrictMode>
-
   );
 }
 
