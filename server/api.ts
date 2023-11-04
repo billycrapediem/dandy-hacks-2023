@@ -96,6 +96,21 @@ router.post("/updateTaskDone", (req: Request, res: Response) => {
   tasksObject.updateOne({ _id: req.body.id }, { $set: { done: true } }).then((task) => res.send(task));
 });
 
+// update the tasks value
+router.post("/updateTaskInfo", (req: Request, res: Response) => {
+  const motivationValue: number = calcualteValue(req.body.interest, req.body.confident, req.body.time);
+  tasksObject.updateOne({ _id: req.body.id }, {
+    $set: {
+      name: req.body.name,
+      confident: req.body.confident,
+      interest: req.body.interest,
+      due_dy: req.body.dueDate,
+      value: motivationValue,
+      time: req.body.time,
+    }
+  }).then((task) => res.send(task));
+});
+
 // delete the task given the id
 router.post("/deleteTask", (req: Request, res: Response) => {
   tasksObject.deleteOne({ _id: req.body.id }).then((task) => res.send(task));

@@ -5,10 +5,9 @@ import { post } from '../utils/utilities';
 import { Form, FloatingLabel, Col } from 'react-bootstrap';
 import "react-datepicker/dist/react-datepicker.css";
 import DatePicker from "react-datepicker";
-import "../../utilities.css"
-
+import "../utils/utilities.css";
 interface submitTasksProps {
-    id: string;
+    id?: string;
 }
 function SubmitTasks(props: submitTasksProps) {
     const [show, setShow] = useState(false);

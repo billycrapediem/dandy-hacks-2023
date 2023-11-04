@@ -1,22 +1,30 @@
-.text{
+.text {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-family: 'Your Font', sans-serif; /* Replace 'Your Font' with the desired font family */
-  font-size: 24px;/* Adjust the font size as needed */
-  font-weight: bold;; 
+  font-family: sans-serif;
+  /* Replace 'Your Font' with the desired font family */
+  font-size: 24px;
+  /* Adjust the font size as needed */
+  font-weight: bold;
+  ;
+  padding: 20px;
   text-align: center;
-  color: yellow; /* Set your preferred text color */
+  color: yellow;
+  /* Set your preferred text color */
 }
 
 .circular-image {
-  width: 100px; /* Adjust the width and height as needed for your circle */
+  width: 100px;
+  /* Adjust the width and height as needed for your circle */
   height: 100px;
-  border-radius: 50%; /* Makes the element a circle */
-  overflow: hidden; /* Hides any content that extends beyond the circle boundary */
-}
-.setcolor{
-  color: yellow;
+  border-radius: 50%;
+  /* Makes the element a circle */
+  overflow: hidden;
+  /* Hides any content that extends beyond the circle boundary */
 }
 
+.setcolor {
+  color: yellow;
+}

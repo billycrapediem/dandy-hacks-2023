@@ -1,15 +1,17 @@
 // Modal Component
-import React, {useState} from 'react';
-import { Container, Modal, Form, Button} from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Container, Modal, Form, Button } from 'react-bootstrap';
 
 interface AddItemModalProps {
-    show: boolean;
-    handleClose: () => void;
+    id: string;
 }
 
 // put the content at the center using bootstrap
-const UploadForm: React.FC<AddItemModalProps> = ({ show, handleClose }) => {
-    const [item, setItem] = useState('');
+export default function UploadForm(props: AddItemModalProps) {
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
 
     return (
         <div className="addTask">
@@ -21,8 +23,6 @@ const UploadForm: React.FC<AddItemModalProps> = ({ show, handleClose }) => {
                     <Form.Control
                         type="text"
                         placeholder="enter the task"
-                        value={item}
-                        onChange={(e) => setItem(e.target.value)}
                     />
                 </Modal.Body>
                 <Modal.Footer>
@@ -36,6 +36,4 @@ const UploadForm: React.FC<AddItemModalProps> = ({ show, handleClose }) => {
             </Modal>
         </div>
     );
-}
-
-export default UploadForm;
+};

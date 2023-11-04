@@ -7,9 +7,9 @@ import { Routes, Route } from "react-router-dom";
 import "../components/load-in.css"
 import Main from "./pages/Main";
 import NotFound from "./pages/NotFound";
-import WorkSapce from './pages/WorkSpace';
 import DoneTasks from './pages/DoneTasks';
 import Schedule from './pages/Schedule';
+import WorkSpaceWarpper from './pages/WorkSpaceWarpper';
 
 interface MyComponentState {
   isLoading: boolean;
@@ -42,6 +42,7 @@ class App extends Component<{}, MyComponentState> {
     } else {
       // Render your main content once data has loaded
       content = (<div>
+
         <NavBar />
         <Container fluid>
           <Row >
@@ -51,8 +52,8 @@ class App extends Component<{}, MyComponentState> {
             <Col style={{ flex: "10" }} id="page-content-wrapper">
               <Routes>
                 <Route path="/" element={<Main />} />
-                <Route path="workspace" element={<WorkSapce />} />
-                <Route path="done" element={<DoneTasks />} />
+                <Route path="/workspace/:name" element={<WorkSpaceWarpper />} />
+                <Route path="/done" element={<DoneTasks />} />
                 <Route path="/calendar" element={<Schedule />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>

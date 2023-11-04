@@ -23,7 +23,7 @@ export default function SideBar() {
                 <SubMenu label="work space">
                     {lenWorkspace ? (workspaceList.map((workspace: listSchema) => {
                         return (
-                            <MenuItem key={workspace.name}>
+                            <MenuItem key={workspace.name} component={<Link to={`/workspace/${workspace.name}`} />}>
                                 {workspace.name}
                             </MenuItem>
                         );

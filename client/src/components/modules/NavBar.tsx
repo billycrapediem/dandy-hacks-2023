@@ -20,10 +20,9 @@ function NavBar() {
     <Navbar bg="primary" data-bs-theme="primary">
       <Container>
         <div>
-
-          <img className="circular-image" src={UR_img} style={logoStyle}>
-          </img></div>
-        <Navbar.Brand className="u-bold setcolor" href="#home">UR List</Navbar.Brand>
+          <img className="circular-image" src={UR_img} style={logoStyle}></img>
+        </div>
+        <Navbar.Brand className="u-bold setcolor text" href="#home">A clever todo list help you sort your calendar</Navbar.Brand>
         <Nav className="me-auto">
           <Nav.Link href="/">
             <FontAwesomeIcon icon={faHome} />
@@ -31,7 +30,6 @@ function NavBar() {
           <Nav.Link href="/calendar">
             <FontAwesomeIcon icon={faCalendar} />
           </Nav.Link>
-          <div className="text">A clever todo list help you sort your calendar</div>
         </Nav>
       </Container>
     </Navbar>
