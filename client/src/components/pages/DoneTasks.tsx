@@ -4,7 +4,7 @@ import taskSchema from "../../../../shared/Tasks";
 import SingleTasksCard from "../modules/SingleTasksCard";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import './Main.css'
+import './DoneTasks.css'
 
 // display all the done tasks in the past
 // the page will be shown in the done task page
