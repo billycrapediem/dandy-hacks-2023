@@ -17,7 +17,7 @@ function NavBar() {
     margin: '10px',
   };
   return (
-    <Navbar bg="primary" data-bs-theme="primary">
+    <Navbar className='color' data-bs-theme="dark">
       <Container>
         <div>
           <img className="circular-image" src={UR_img} style={logoStyle}></img>

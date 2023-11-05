@@ -43,16 +43,16 @@ export default function SingleTasksCard(props: MyComponentProps) {
             ) : (<></>)
             }
             <Col sm='2'>
-                <Row style={{ fontSize: "16px" }}>
+                <Row className="u-bold" style={{ fontSize: "16px" }}>
                     {props.task.name}
 
                 </Row>
-                <Row style={{ fontSize: "12px" }}>
+                <Row className="u-bold" style={{ fontSize: "12px" }}>
                     {props.task.dayInString}
                 </Row>
             </Col>
             <Col>
-                <Row style={{ fontSize: "16px" }}>
+                <Row className="u-bold" style={{ fontSize: "16px" }}>
                     Motivation value: {props.task.value}
                 </Row>
             </Col>
@@ -60,7 +60,7 @@ export default function SingleTasksCard(props: MyComponentProps) {
                 <UploadForm id={props.task._id} />
             </Col>
             <Col>
-                <Button variant="primary" onClick={HANDLE_DELETE_TASK}>
+                <Button className="u-bold" variant="primary" onClick={HANDLE_DELETE_TASK}>
                     <FontAwesomeIcon icon={faEdit} />
                 </Button>
             </Col>

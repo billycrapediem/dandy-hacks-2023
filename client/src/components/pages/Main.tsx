@@ -4,6 +4,7 @@ import { Container, Row, Card } from 'react-bootstrap';
 import { getTaskByWorkSpace } from '../utils/endPoint';
 import TaskSchema from "../../../../shared/Tasks";
 import SingleTasksCard from '../modules/SingleTasksCard';
+import "./Main.css"
 // main page of the app consists of two parts, reminder of the today's task and overview of the tasks in the future
 // make the text beautiful
 export default function Main() {
@@ -21,8 +22,8 @@ export default function Main() {
 
     };
     return (
-        <Container fluid>
-            <Row style={rowStyle}>
+        <Container className="background" fluid>
+            <Row className='u-bold' style={rowStyle}>
                 Tasks due today
             </Row>
             {tasks.map((task: TaskSchema) => {

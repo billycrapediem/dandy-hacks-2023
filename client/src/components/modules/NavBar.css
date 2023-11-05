@@ -26,5 +26,9 @@
 }
 
 .setcolor {
-  color: yellow;
+  color: rgb(255, 255, 255);
+}
+
+.color{
+  background-color: rgb(149, 121, 86);
 }
