@@ -4,7 +4,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 import 'bootstrap/dist/css/bootstrap.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faCalendar } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faCubes ,faCalendar,faFlag } from '@fortawesome/free-solid-svg-icons';
 import UR_img from '../src/ur.jpeg';
 import './NavBar.css';
 import '../utils/utilities.css';
@@ -16,6 +16,10 @@ function NavBar() {
     height: 'auto',    // This will maintain the aspect ratio
     margin: '10px',
   };
+  function solid(arg0: string): import("@fortawesome/fontawesome-svg-core").IconProp {
+    throw new Error('Function not implemented.');
+  }
+
   return (
     <Navbar className='color' data-bs-theme="dark">
       <Container>
@@ -31,6 +35,8 @@ function NavBar() {
             <FontAwesomeIcon icon={faCalendar} />
           </Nav.Link>
         </Nav>
+        <FontAwesomeIcon className='u-flex' icon={faFlag} bounce size="xl" />
+        <FontAwesomeIcon className='u-flex' icon={faCubes} beat size="2xl" style={{color: "#fffff",}} />
       </Container>
     </Navbar>
   );
