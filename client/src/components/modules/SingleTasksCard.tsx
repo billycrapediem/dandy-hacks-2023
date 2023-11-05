@@ -27,8 +27,8 @@ export default function SingleTasksCard(props: MyComponentProps) {
     }
     const TASK_STYLE = {
         margin: "10px",
-        borderTop: '2px solid #ccc',
-        borderBottom: '2px solid #ccc',
+        borderTop: '2px solid #808080',
+        borderBottom: '2px solid #808080',
         padding: '10px',
     }
     const time: Date = props.task.due_dy;
