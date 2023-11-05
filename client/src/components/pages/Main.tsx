@@ -10,9 +10,9 @@ export default function Main() {
     const [tasks, setTasks] = useState<TaskSchema[]>([]);
     useEffect(() => {
         const fetchTasks = async () => {
-            const tmpTasks = await getTaskByWorkSpace(false, "asdfasdf");
+            const tmpTasks = await getTaskByWorkSpace(false);
+            console.log(tmpTasks)
             setTasks(tmpTasks);
-            console.log(tasks);
         };
         fetchTasks();
     }, []);
@@ -28,7 +28,7 @@ export default function Main() {
             </Row>
             {tasks.map((task: TaskSchema) => {
                 return (
-                    <SingleTasksCard task={task} />
+                    <SingleTasksCard task={task} key={task._id} />
                 );
             })}
             <Row style={rowStyle}>

@@ -58,6 +58,7 @@ function SubmitTasks(props: submitTasksProps) {
                 onHide={handleClose}
                 backdrop="static"
                 keyboard={false}
+                size='lg'
             >
                 <Modal.Header closeButton>
                     <Modal.Title>new tasks</Modal.Title>
@@ -66,10 +67,10 @@ function SubmitTasks(props: submitTasksProps) {
                     <Col>
                         <Form.Label htmlFor="inputName">name</Form.Label>
                         <Form.Control type="name" onChange={handleName} />
-                        <Form.Label htmlFor="inputConfident">confident</Form.Label>
-                        <Form.Control type="confident rate" onChange={handleConfident} />
-                        <Form.Label htmlFor="inputInterest">intereset</Form.Label>
-                        <Form.Control type="Interest rate" onChange={handleInterest} />
+                        <Form.Label htmlFor="inputConfident" >confident</Form.Label>
+                        <Form.Control type="confident rate" placeholder='how confident are you in this work( scale from 0 to 10)' onChange={handleConfident} />
+                        <Form.Label htmlFor="inputInterest" >intereset</Form.Label>
+                        <Form.Control type="Interest rate" placeholder='how is the job interesting (0-10)' onChange={handleInterest} />
                         <div style={{ marginTop: '20px' }}>
                             Date
                         </div>

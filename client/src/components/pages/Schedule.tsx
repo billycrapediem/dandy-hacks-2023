@@ -1,7 +1,7 @@
 import { ScheduleComponent, Day, Week, WorkWeek, Month, Agenda, Inject } from '@syncfusion/ej2-react-schedule';
 import React, { useEffect, useState } from 'react';
 import './Schedule.css';
-import { getTasks } from '../utils/api';
+import { getTasks } from '../utils/endPoint';
 import { Tab } from 'react-bootstrap';
 import TaskSchema from "../../../../shared/Tasks";
 

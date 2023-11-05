@@ -25,15 +25,16 @@ export default function SingleTasksCard(props: MyComponentProps) {
     }
     const TASK_STYLE = {
         margin: "10px",
-        borderTop: '2px solid #ccc', // 上边框样式
-        borderBottom: '2px solid #ccc', // 下边框样式
+        borderTop: '2px solid #ccc',
+        borderBottom: '2px solid #ccc',
         padding: '10px',
     }
+    const time: Date = props.task.due_dy;
     return (
         <Row style={TASK_STYLE}>
             {!props.task.done ? (
                 <Col sm='1'>
-                    <Form.Check // prettier-ignore
+                    <Form.Check
                         type={'radio'}
                         id={`default-${'radio'}`}
                         onClick={HANDLE_CHANGE_TASK_TO_DONE}
@@ -47,7 +48,7 @@ export default function SingleTasksCard(props: MyComponentProps) {
 
                 </Row>
                 <Row style={{ fontSize: "12px" }}>
-                    {props.task.due_dy.toUTCString()}
+                    {props.task.dayInString}
                 </Row>
             </Col>
             <Col>

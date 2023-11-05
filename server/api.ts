@@ -64,7 +64,7 @@ async function upToDateTask() {
 // add new task to the database
 router.post("/newTasks", (req: Request, res: Response) => {
   const motivationValue: number = calcualteValue(req.body.interest, req.body.confident, req.body.time);
-  console.log(motivationValue)
+  const dateInString: string = req.body.dueDate.toString();
   const newTasks = new tasksObject({
     name: req.body.name,
     confident: req.body.confident,
@@ -74,6 +74,7 @@ router.post("/newTasks", (req: Request, res: Response) => {
     time: req.body.time,
     done: req.body.done,
     workSpace: req.body.workSpace,
+    dayInString: dateInString,
   }
   )
   newTasks.save().then((task) => res.send(task));

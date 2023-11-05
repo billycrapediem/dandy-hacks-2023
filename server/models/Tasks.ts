@@ -10,6 +10,7 @@ const taskSchema = new Schema({
     done: Boolean,
     workSpace: String,
     time: Number,
+    dayInString: String,
 });
 
 export interface taskSchema extends Document {
@@ -20,8 +21,10 @@ export interface taskSchema extends Document {
     value: number,
     done: boolean,
     workSpace: string,
-    _id: string,
     time: number,
+    dayInString: string,
+    _id: string,
+
 };
 
 const tasksObject = model<taskSchema>("tasks", taskSchema);
