@@ -14,7 +14,7 @@ export default function SideBar() {
             setWorkspaceList(tmpList);
         };
         fetchLists();
-    }, []);
+    });
     const lenWorkspace: boolean = workspaceList.length > 0;
     return (
         <Sidebar width="150px">

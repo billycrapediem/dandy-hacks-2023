@@ -24,6 +24,10 @@ export async function changeTaskToDone(id: string): Promise<void> {
 
 // delete task from the database
 export async function deleteTask(id: string): Promise<void> {
-    return await get("/api/deleteTask", { id });
+    return await post("/api/deleteTask", { id });
 }
 
+// delete list from the database
+export async function deleteList(name: string): Promise<void> {
+    return await post("/api/deleteList", { name });
+}

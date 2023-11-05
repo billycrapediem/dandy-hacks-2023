@@ -117,6 +117,11 @@ router.post("/deleteTask", (req: Request, res: Response) => {
   tasksObject.deleteOne({ _id: req.body.id }).then((task) => res.send(task));
 });
 
+// delete teh list given the name
+router.post("/deleteList", (req: Request, res: Response) => {
+  listObject.deleteOne({ name: req.body.name }).then((list) => res.send(list));
+});
+
 // anything else falls to this "not found" case
 router.all("*", (req, res) => {
   const msg = `Api route not found: ${req.method} ${req.url}`;

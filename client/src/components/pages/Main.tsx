@@ -1,7 +1,7 @@
 // main page of the app
 import React, { useEffect, useState } from 'react';
-import { Container, Row, Col, } from 'react-bootstrap';
-import { getTaskByWorkSpace, getTasks } from '../utils/endPoint';
+import { Container, Row, Card } from 'react-bootstrap';
+import { getTaskByWorkSpace } from '../utils/endPoint';
 import TaskSchema from "../../../../shared/Tasks";
 import SingleTasksCard from '../modules/SingleTasksCard';
 // main page of the app consists of two parts, reminder of the today's task and overview of the tasks in the future
@@ -15,9 +15,8 @@ export default function Main() {
             setTasks(tmpTasks);
         };
         fetchTasks();
-    }, []);
+    });
     const rowStyle = {
-        margin: "10px",
         fontSize: "30px",
 
     };
@@ -31,8 +30,19 @@ export default function Main() {
                     <SingleTasksCard task={task} key={task._id} />
                 );
             })}
-            <Row style={rowStyle}>
-                Tasks Over View
+            <Row>
+                <Container fluid className="d-flex align-items-center justify-content-center vh-100">
+                    <Card>
+                        <Card.Body>
+                            <Card.Title>Don't procrastinate</Card.Title>
+                            <Card.Text>
+                                The goal of this app is to help you to manage your time and tasks and avoid procrastination.
+                                The motivation value of each task is calculated based on motivation formula founded by Steel.
+                            </Card.Text>
+                        </Card.Body>
+                    </Card>
+
+                </Container>
             </Row>
         </Container>
 

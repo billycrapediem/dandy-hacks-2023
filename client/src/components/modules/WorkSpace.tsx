@@ -1,16 +1,21 @@
 import React, { useEffect, useState } from 'react';
-import { Container, Row } from 'react-bootstrap';
+import { Container, Row, Col, Button } from 'react-bootstrap';
 import TaskSchema from '../../../../shared/Tasks';
-import { getTaskByWorkSpace } from '../utils/endPoint';
+import { getTaskByWorkSpace, deleteList } from '../utils/endPoint';
 import SingleTasksCard from '../modules/SingleTasksCard';
 import SubmitTasks from './SubmitTasks';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from 'react-router-dom';
 // WorkSpace page of the app, contains all the tasks in the same workspace
 // 
 interface workSpaceProps {
     workspaceName?: string;
 }
+
 export default function WorkSapce(props: workSpaceProps) {
     const [tasks, setTasks] = useState<TaskSchema[]>([]);
+    const navigate = useNavigate();
     useEffect(() => {
         const fetchTasks = async () => {
             const tmpTasks = await getTaskByWorkSpace(false, props.workspaceName);
@@ -18,6 +23,12 @@ export default function WorkSapce(props: workSpaceProps) {
         }
         fetchTasks();
     })
+    async function handleListDelete() {
+        if (props.workspaceName !== undefined) {
+            await deleteList(props.workspaceName);
+            navigate('/');
+        }
+    }
     const hasTasks: boolean = tasks.length > 0;
     const rowStyle = {
         margin: "10px",
@@ -26,8 +37,14 @@ export default function WorkSapce(props: workSpaceProps) {
     return (
         <Container fluid>
             <Row style={rowStyle}>
-                {props.workspaceName}
-
+                <Col>
+                    {props.workspaceName}
+                </Col>
+                <Col>
+                    <Button variant="danger" onClick={handleListDelete}>
+                        <FontAwesomeIcon icon={faTrash} />
+                    </Button>
+                </Col>
             </Row>
             {hasTasks ? (
                 tasks.map((task: TaskSchema) => {
