@@ -22,10 +22,10 @@ interface foo {
 router.get("/task", async (req: Request<{}, {}, {}, foo>, res: Response) => {
   function compareFun(a: taskSchema, b: taskSchema) {
     if (a.value > b.value) {
-      return 1;
+      return -1;
     }
     else if (b.value > a.value) {
-      return -1;
+      return 1;
     }
     return 0;
   }
@@ -80,6 +80,22 @@ router.post("/newTasks", (req: Request, res: Response) => {
   newTasks.save().then((task) => res.send(task));
 });
 
+// update the task given the id
+router.post("/updateTask", (req: Request, res: Response) => {
+  const dateInString: string = req.body.dueDate.toString();
+  const motivationValue: number = calcualteValue(req.body.interest, req.body.confident, req.body.time);
+  tasksObject.updateOne({ _id: req.body.id }, {
+    $set: {
+      confident: req.body.confident,
+      interest: req.body.interest,
+      due_dy: req.body.dueDate,
+      value: motivationValue,
+      time: req.body.time,
+      dayInString: dateInString,
+    }
+  }).then((task) => res.send(task));
+});
+
 //update the task
 router.post("/upToDateTask", (req: Request, res: Response) => {
   upToDateTask();
@@ -102,7 +118,6 @@ router.post("/updateTaskInfo", (req: Request, res: Response) => {
   const motivationValue: number = calcualteValue(req.body.interest, req.body.confident, req.body.time);
   tasksObject.updateOne({ _id: req.body.id }, {
     $set: {
-      name: req.body.name,
       confident: req.body.confident,
       interest: req.body.interest,
       due_dy: req.body.dueDate,

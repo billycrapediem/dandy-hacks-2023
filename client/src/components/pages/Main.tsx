@@ -22,7 +22,7 @@ export default function Main() {
 
     };
     return (
-        <Container className="background" fluid>
+        <Container className="background">
             <Row className='u-bold' style={rowStyle}>
                 Tasks due today
             </Row>
