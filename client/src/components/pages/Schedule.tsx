@@ -1,4 +1,4 @@
-import { ScheduleComponent, Day, Week, WorkWeek, Month, Agenda, Inject } from '@syncfusion/ej2-react-schedule';
+import { ScheduleComponent, Day, Week, WorkWeek, Month, Agenda, Inject,ResourcesDirective,ResourceDirective } from '@syncfusion/ej2-react-schedule';
 import React, { useEffect, useState } from 'react';
 import './Schedule.css';
 import { getTasks } from '../utils/endPoint';
@@ -19,9 +19,40 @@ const Schedule = () => {
   const data = tasks.map(task => ({
     Id: task.id,               // Event ID
     Subject: task.name,       // Event title
-    //StartTime: task.start,    // Event start time
-    //EndTime: task.end         // Event end time
+    StartTime: task.due_dy,    // Event start time
+    EndTime: task.due_dy         // Event end time
   }));
+  const generateResourceData = (taskList:TaskSchema[]): Object[] => {
+    let data: { [key: string]: Object }[] = [];
+    let colors: string[] = [
+      '#ff8787', '#9775fa', '#748ffc', '#3bc9db', '#69db7c',
+      '#fdd835', '#748ffc', '#9775fa', '#df5286', '#7fa900',
+      '#fec200', '#5978ee', '#00bdae', '#ea80fc'
+    ];
+    function generateColor(value:number):string{
+      if(value<10){
+        return colors[0];
+      }else if(value<20){
+        return colors[1];
+      }else if(value<30){
+        return colors[2];
+      }else if(value<40){
+        return colors[3];
+      }else{
+        return colors[4];
+      }
+    }
+    taskList.forEach((task, index) => {
+      console.log(task.value),
+      console.log(generateColor(task.value))
+      data.push({
+        Id: task.id,
+        Text: task.name,
+        Color: generateColor(task.value),
+      });
+    });
+    return data;
+  }
 
   /*const data = [
     {
@@ -46,6 +77,12 @@ const Schedule = () => {
       }}
       height='auto'
     >
+       <ResourcesDirective>
+        <ResourceDirective field='ResourceId' title='Resource' name='Resources'
+          dataSource={generateResourceData(tasks)}
+          textField='Text' idField='Id' colorField='Color'>
+        </ResourceDirective>
+      </ResourcesDirective>
       <Inject services={[Day, Week, WorkWeek, Month, Agenda]} />
     </ScheduleComponent>
   );
