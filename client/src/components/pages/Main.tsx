@@ -22,7 +22,8 @@ export default function Main() {
 
     };
     return (
-        <Container className="background">
+      <div className='background'>
+        <Container >
             <Row className='u-bold' style={rowStyle}>
                 Task Overview
             </Row>
@@ -46,6 +47,6 @@ export default function Main() {
                 </Container>
             </Row>
         </Container>
-
+</div>
     );
 }

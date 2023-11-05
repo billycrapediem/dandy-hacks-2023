@@ -29,10 +29,10 @@ function NavBar() {
         <Navbar.Brand className="u-bold setcolor text" href="#home">A clever todo list help you sort your calendar</Navbar.Brand>
         <Nav className="me-auto">
           <Nav.Link href="/">
-            <FontAwesomeIcon icon={faHome} />
+            <FontAwesomeIcon icon={faHome} size="xl" />
           </Nav.Link>
           <Nav.Link href="/calendar">
-            <FontAwesomeIcon icon={faCalendar} />
+            <FontAwesomeIcon icon={faCalendar} size="xl" />
           </Nav.Link>
         </Nav>
         <FontAwesomeIcon className='u-flex' icon={faFlag} bounce size="xl" />
