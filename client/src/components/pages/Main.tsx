@@ -24,7 +24,7 @@ export default function Main() {
     return (
         <Container className="background">
             <Row className='u-bold' style={rowStyle}>
-                Tasks due today
+                Tasks Overview
             </Row>
             {tasks.map((task: TaskSchema) => {
                 return (
