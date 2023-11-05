@@ -73,7 +73,7 @@ function SubmitTasks(props: submitTasksProps) {
                         <Form.Control type="name" onChange={handleName} />
                         <Form.Label htmlFor="inputConfident" >confident</Form.Label>
                         <Form.Control type="confident rate" placeholder='how confident are you in this work( scale from 0 to 10)' onChange={handleConfident} />
-                        <Form.Label htmlFor="inputInterest" >intereset</Form.Label>
+                        <Form.Label htmlFor="inputInterest" >interest</Form.Label>
                         <Form.Control type="Interest rate" placeholder='how is the job interesting (0-10)' onChange={handleInterest} />
                         <div style={{ marginTop: '20px' }}>
                             Date
