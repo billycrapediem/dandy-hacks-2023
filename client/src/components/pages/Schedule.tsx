@@ -55,7 +55,7 @@ const Schedule = () => {
   }
 
   return (
-    <ScheduleComponent
+    <ScheduleComponent 
       selectedDate={new Date()} // November 1, 2023
       eventSettings={{
         dataSource: data,
