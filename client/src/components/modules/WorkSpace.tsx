@@ -7,6 +7,7 @@ import SubmitTasks from './SubmitTasks';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from 'react-router-dom';
+import "../pages/Main.css"
 // WorkSpace page of the app, contains all the tasks in the same workspace
 // 
 interface workSpaceProps {
@@ -35,7 +36,7 @@ export default function WorkSapce(props: workSpaceProps) {
         fontSize: "30px",
     };
     return (
-        <Container fluid>
+        <Container className='background' fluid>
             <Row style={rowStyle}>
                 <Col>
                     {props.workspaceName}
