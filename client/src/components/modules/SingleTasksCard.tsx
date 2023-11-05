@@ -2,7 +2,7 @@ import React from "react";
 import taskSchema from "../../../../shared/Tasks";
 import { Button, Col, Form, Row } from "react-bootstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrash, faPenToSquare } from "@fortawesome/free-solid-svg-icons";
+import { faTrash, faPenToSquare,faEdit } from "@fortawesome/free-solid-svg-icons";
 import { deleteTask, changeTaskToDone } from "../utils/endPoint";
 import UploadForm from "./UploadForm";
 // single task card, contains the information of a single task, including the name, due date, and the value for the task
@@ -58,6 +58,11 @@ export default function SingleTasksCard(props: MyComponentProps) {
             </Col>
             <Col>
                 <UploadForm id={props.task._id} />
+            </Col>
+            <Col>
+                <Button variant="primary" onClick={HANDLE_DELETE_TASK}>
+                    <FontAwesomeIcon icon={faEdit} />
+                </Button>
             </Col>
             <Col>
                 <Button variant="primary" onClick={HANDLE_DELETE_TASK}>

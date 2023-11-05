@@ -17,6 +17,10 @@ function SubmitTasks(props: submitTasksProps) {
     const [confident, confidentSetter] = useState<number>(0);
     const [interest, interestSetter] = useState<number>(0);
     const [selectDate, setSelectDate] = useState(new Date());
+
+    let handleColor = (time) => {
+      return time.getHours() > 12 ? "text-success" : "text-error";
+    };
     // function handle the input change and submit
     const handleName = (event: ChangeEvent<HTMLInputElement>) => {
         nameSetter(event.target.value);
@@ -74,7 +78,7 @@ function SubmitTasks(props: submitTasksProps) {
                         <div style={{ marginTop: '20px' }}>
                             Date
                         </div>
-                        <DatePicker selected={selectDate} onChange={(date) => setSelectDate(date)} />
+                        <DatePicker  showIcon selected={selectDate} onChange={(date) => setSelectDate(date) } />
                     </Col>
                 </Modal.Body>
                 <Modal.Footer>
