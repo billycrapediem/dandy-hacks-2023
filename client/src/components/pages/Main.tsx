@@ -22,9 +22,10 @@ export default function Main() {
 
     };
     return (
-        <Container className="background">
+      <div className='background'>
+        <Container >
             <Row className='u-bold' style={rowStyle}>
-                Tasks Overview
+                Task Overview
             </Row>
             {tasks.map((task: TaskSchema) => {
                 return (
@@ -46,6 +47,6 @@ export default function Main() {
                 </Container>
             </Row>
         </Container>
-
+</div>
     );
 }
